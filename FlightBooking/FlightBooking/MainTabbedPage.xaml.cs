@@ -1,6 +1,4 @@
-﻿using FlightBooking.Base;
-using FlightBooking.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FlightBooking.Views
+namespace FlightBooking
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainView : BaseContentPage<MainViewModel>
+    public partial class MainTabbedPage : TabbedPage
     {
-        public MainView()
+        public MainTabbedPage()
         {
             InitializeComponent();
         }

@@ -13,7 +13,7 @@ namespace FlightBooking
             Resolver.container = container;
         }
 
-        public T Resolve<T>()
+        public static T Resolve<T>()
         {
             return container.Resolve<T>();
         }

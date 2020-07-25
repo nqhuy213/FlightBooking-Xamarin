@@ -4,10 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-                      Title="Search Flights"
+                      Title="Check-in"
              xmlns:base="clr-namespace:FlightBooking.Base"
                       xmlns:vm="clr-namespace:FlightBooking.ViewModels"
-                      x:TypeArguments="vm:MainViewModel"
-             x:Class="FlightBooking.Views.MainView">
-    <Label Text="alo"/>
+                      x:TypeArguments="vm:CheckInViewModel"
+             x:Class="FlightBooking.Views.CheckInView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
 </base:BaseContentPage>

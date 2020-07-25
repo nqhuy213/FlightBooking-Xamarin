@@ -23,9 +23,9 @@ namespace FlightBooking.Services.Navigation
             }
         }
 
-        public Task InitializeAsync()
+        public void InitializeAsync()
         {
-            return NavigateToAsync<MainViewModel>();
+             Application.Current.MainPage = new MainTabbedPage();
         }
 
         public Task NavigateToAsync<TViewModel>() where TViewModel : BaseViewModel

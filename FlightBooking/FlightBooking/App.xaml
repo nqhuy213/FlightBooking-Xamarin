@@ -6,6 +6,15 @@
              mc:Ignorable="d"
              x:Class="FlightBooking.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <OnPlatform x:Key="IconFont" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Font Awesome 5 Free" />
+                <On Platform="Android" Value="FontAwesome.otf#" />
+            </OnPlatform>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="AirplaneIcon" Glyph='&#xf072;' Size="22" Color="White"/>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="BoardingPassIcon" Glyph='&#xf3ff;' Size="22" Color="White"/>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="CheckinIcon" Glyph='&#xf058;' Size="22" Color="White"/>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="MoreIcon" Glyph='&#xf141;' Size="22" Color="White"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

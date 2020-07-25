@@ -12,9 +12,9 @@ using Xamarin.Forms.Xaml;
 namespace FlightBooking.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainView : BaseContentPage<MainViewModel>
+    public partial class CheckInView : BaseContentPage<CheckInViewModel>
     {
-        public MainView()
+        public CheckInView()
         {
             InitializeComponent();
         }

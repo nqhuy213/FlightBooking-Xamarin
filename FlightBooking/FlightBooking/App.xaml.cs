@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightBooking.Services.Navigation;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,8 @@ namespace FlightBooking
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            var navigationService = Resolver.Resolve<INavigationService>();
+            navigationService.InitializeAsync();
         }
 
         protected override void OnStart()

@@ -4,10 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-                      Title="Search Flights"
              xmlns:base="clr-namespace:FlightBooking.Base"
                       xmlns:vm="clr-namespace:FlightBooking.ViewModels"
-                      x:TypeArguments="vm:MainViewModel"
-             x:Class="FlightBooking.Views.MainView">
-    <Label Text="alo"/>
+                      x:TypeArguments="vm:MoreViewModel"
+             x:Class="FlightBooking.Views.MoreView">
+    
 </base:BaseContentPage>
