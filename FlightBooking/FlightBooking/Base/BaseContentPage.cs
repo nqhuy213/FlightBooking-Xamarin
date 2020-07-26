@@ -14,6 +14,7 @@ namespace FlightBooking.Base
             var viewModel = Resolver.Resolve<T>() as BaseViewModel;
             BindingContext = viewModel;
             ViewModel = (T)viewModel;
+            
         }
         protected override void OnAppearing()
         {

@@ -11,10 +11,27 @@
                 <On Platform="iOS" Value="Font Awesome 5 Free" />
                 <On Platform="Android" Value="FontAwesome.otf#" />
             </OnPlatform>
-            <FontImage FontFamily="{StaticResource IconFont}" x:Key="AirplaneIcon" Glyph='&#xf072;' Size="22" Color="White"/>
-            <FontImage FontFamily="{StaticResource IconFont}" x:Key="BoardingPassIcon" Glyph='&#xf3ff;' Size="22" Color="White"/>
-            <FontImage FontFamily="{StaticResource IconFont}" x:Key="CheckinIcon" Glyph='&#xf058;' Size="22" Color="White"/>
-            <FontImage FontFamily="{StaticResource IconFont}" x:Key="MoreIcon" Glyph='&#xf141;' Size="22" Color="White"/>
+            <Color x:Key="MainPurpleColor">#81529d</Color>
+            <Color x:Key="LightGrayColor">#f3f3f3</Color>
+            <Color x:Key="UnselectedIconColor">#b2b2b2</Color>
+            <Color x:Key="SelectedIconColor">#81529d</Color>
+            <Style x:Key="PageTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="AirplaneIcon" 
+                       Glyph='&#xf072;' Size="22" Color="{StaticResource UnselectedIconColor}"/>
+            
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="BoardingPassIcon" 
+                       Glyph='&#xf3ff;' Size="22" Color="{StaticResource UnselectedIconColor}"/>
+            
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="CheckinIcon" 
+                       Glyph='&#xf058;' Size="22" Color="{StaticResource UnselectedIconColor}"/>
+            
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="MoreIcon" 
+                       Glyph='&#xf141;' Size="22" Color="{StaticResource UnselectedIconColor}"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

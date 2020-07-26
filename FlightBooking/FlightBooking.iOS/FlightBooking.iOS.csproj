@@ -141,4 +141,7 @@
       <Name>FlightBooking</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\background.png" />
+  </ItemGroup>
 </Project>

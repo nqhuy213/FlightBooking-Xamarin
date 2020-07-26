@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-                      Title="Search Flights"
-             xmlns:base="clr-namespace:FlightBooking.Base"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      mc:Ignorable="d"
+                      BackgroundImageSource="background.png"
+                      xmlns:base="clr-namespace:FlightBooking.Base"
                       xmlns:vm="clr-namespace:FlightBooking.ViewModels"
                       x:TypeArguments="vm:MainViewModel"
-             x:Class="FlightBooking.Views.MainView">
-    <Label Text="alo"/>
+                      x:Class="FlightBooking.Views.MainView">
+    <NavigationPage.TitleView>
+        <Label Text="Search Flights" Style="{StaticResource PageTitleStyle}"/>
+    </NavigationPage.TitleView>
 </base:BaseContentPage>

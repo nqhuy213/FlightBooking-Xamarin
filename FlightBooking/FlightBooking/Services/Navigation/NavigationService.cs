@@ -1,4 +1,5 @@
-﻿using FlightBooking.ViewModels;
+﻿using FlightBooking.Base;
+using FlightBooking.ViewModels;
 using FlightBooking.ViewModels.Base;
 using FlightBooking.Views;
 using System;
@@ -17,7 +18,7 @@ namespace FlightBooking.Services.Navigation
         {
             get
             {
-                var mainPage = Application.Current.MainPage as CustomNavigationView;
+                var mainPage = Application.Current.MainPage as BaseNavigationPage;
                 var viewModel = mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 2].BindingContext;
                 return viewModel as BaseViewModel;
             }
@@ -25,7 +26,7 @@ namespace FlightBooking.Services.Navigation
 
         public void InitializeAsync()
         {
-             Application.Current.MainPage = new MainTabbedPage();
+            Application.Current.MainPage = new MainTabbedPage();
         }
 
         public Task NavigateToAsync<TViewModel>() where TViewModel : BaseViewModel
@@ -40,7 +41,7 @@ namespace FlightBooking.Services.Navigation
 
         public Task RemoveBackStackAsync()
         {
-            var mainPage = Application.Current.MainPage as CustomNavigationView;
+            var mainPage = Application.Current.MainPage as BaseNavigationPage;
 
             if (mainPage != null)
             {
@@ -53,7 +54,7 @@ namespace FlightBooking.Services.Navigation
 
         public Task RemoveLastFromBackStackAsync()
         {
-            var mainPage = Application.Current.MainPage as CustomNavigationView;
+            var mainPage = Application.Current.MainPage as BaseNavigationPage;
 
             if (mainPage != null)
             {
@@ -72,18 +73,18 @@ namespace FlightBooking.Services.Navigation
 
             if (page is MainView)
             {
-                Application.Current.MainPage = new CustomNavigationView(page);
+                Application.Current.MainPage = new BaseNavigationPage(page);
             }
             else
             {
-                var navigationPage = Application.Current.MainPage as CustomNavigationView;
+                var navigationPage = Application.Current.MainPage as BaseNavigationPage;
                 if (navigationPage != null)
                 {
                     await navigationPage.PushAsync(page);
                 }
                 else
                 {
-                    Application.Current.MainPage = new CustomNavigationView(page);
+                    Application.Current.MainPage = new BaseNavigationPage(page);
                 }
             }
 

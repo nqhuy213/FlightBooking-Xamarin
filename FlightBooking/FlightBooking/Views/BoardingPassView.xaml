@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 mc:Ignorable="d"
-					  Title="Boarding Pass"
-						xmlns:base="clr-namespace:FlightBooking.Base"
-					  xmlns:vm="clr-namespace:FlightBooking.ViewModels"
-					  x:TypeArguments="vm:BoardingPassViewModel"
-			 x:Class="FlightBooking.Views.BoardingPassView">
+			          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			          xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+			          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			          mc:Ignorable="d"
+			   	      Title="Boarding Pass"
+			   	      xmlns:base="clr-namespace:FlightBooking.Base"
+			   	      xmlns:vm="clr-namespace:FlightBooking.ViewModels"
+			   	      x:TypeArguments="vm:BoardingPassViewModel"
+			          x:Class="FlightBooking.Views.BoardingPassView">
 
-
+    <NavigationPage.TitleView>
+        <Label Text="Boarding Pass" Style="{StaticResource PageTitleStyle}" TextColor="Red"/>
+    </NavigationPage.TitleView>
 </base:BaseContentPage>

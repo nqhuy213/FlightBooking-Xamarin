@@ -1,5 +1,4 @@
-﻿using FlightBooking.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +7,20 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FlightBooking.Views
+namespace FlightBooking.Base
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomNavigationView : NavigationPage
+    public partial class BaseNavigationPage : NavigationPage
     {
-        public CustomNavigationView():base()
+        public BaseNavigationPage()
         {
             InitializeComponent();
         }
-        public CustomNavigationView(Page root) : base(root)
+        public BaseNavigationPage(Page root) : base(root)
         {
             InitializeComponent();
         }
+
         public bool IgnoreLayoutChange { get; set; } = false;
 
         protected override void OnSizeAllocated(double width, double height)
@@ -30,4 +30,3 @@ namespace FlightBooking.Views
         }
     }
 }
-    
