@@ -22,7 +22,7 @@ namespace FlightBooking
         {
             var currentAssembly = Assembly.GetExecutingAssembly();
             ContainerBuilder = new ContainerBuilder();
-            foreach (var type in currentAssembly.DefinedTypes.Where(e => e.IsSubclassOf(typeof(Page)) || e.IsSubclassOf(typeof(BaseViewModel))))
+            foreach (var type in currentAssembly.DefinedTypes.Where(e => e.IsSubclassOf(typeof(Page)) || e.IsSubclassOf(typeof(BaseViewModel)) || e.IsSubclassOf(typeof(ContentView))))
             {
                 ContainerBuilder.RegisterType(type.AsType());
             }

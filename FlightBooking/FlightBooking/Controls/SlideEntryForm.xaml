@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="SlideEntry"
+             x:Class="FlightBooking.Controls.SlideEntryForm">
+    <AbsoluteLayout x:Name="Container">
+        <StackLayout x:Name="RoundTripEntriesLayout" Padding="25,5,25,0" AbsoluteLayout.LayoutBounds="0,0,415,300">
+            <Label Text="From" TextColor="White" FontSize="18"/>
+            <Picker FontSize="18" Title="Select a city" TextColor="White" TitleColor="White" ItemsSource="{Binding EntryModel.FromCity}"/>
+            <Label Text="To" TextColor="White" FontSize="18"/>
+            <Picker FontSize="18" Title="Select a city" TitleColor="White" TextColor="White" ItemsSource="{Binding EntryModel.ToCity}"/>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="170">
+                    <Label Text="Departure" TextColor="White" FontSize="18"/>
+                    <DatePicker TextColor="White" FontSize="18" Date="{Binding EntryModel.Departure}"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="170">
+                    <Label Text="Return" TextColor="White" FontSize="18"/>
+                    <DatePicker TextColor="White" FontSize="18" Date="{Binding EntryModel.Return}"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout x:Name="OneWayEntriesLayout" Padding="25,5,25,0" AbsoluteLayout.LayoutBounds="600,0,415,300">
+            <Label Text="From" TextColor="White" FontSize="18"/>
+            <Picker FontSize="18" Title="Select a city" TextColor="White" TitleColor="White" ItemsSource="{Binding EntryModel.FromCity}"/>
+            <Label Text="To" TextColor="White" FontSize="18"/>
+            <Picker FontSize="18" Title="Select a city" TitleColor="White" TextColor="White" ItemsSource="{Binding EntryModel.ToCity}"/>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="170">
+                    <Label Text="Departure" TextColor="White" FontSize="18"/>
+                    <DatePicker TextColor="White" FontSize="18" Date="{Binding EntryModel.Departure}"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentView>

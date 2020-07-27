@@ -19,7 +19,15 @@
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="SelectdButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource MainPurpleColor}"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style x:Key="UnselectedButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="#5FFFFFFF"/>
             </Style>
             <FontImage FontFamily="{StaticResource IconFont}" x:Key="AirplaneIcon" 
                        Glyph='&#xf072;' Size="22" Color="{StaticResource UnselectedIconColor}"/>

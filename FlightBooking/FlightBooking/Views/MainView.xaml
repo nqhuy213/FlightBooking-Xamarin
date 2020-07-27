@@ -8,8 +8,46 @@
                       xmlns:base="clr-namespace:FlightBooking.Base"
                       xmlns:vm="clr-namespace:FlightBooking.ViewModels"
                       x:TypeArguments="vm:MainViewModel"
+                      xmlns:controls="clr-namespace:FlightBooking.Controls"
                       x:Class="FlightBooking.Views.MainView">
     <NavigationPage.TitleView>
-        <Label Text="Search Flights" Style="{StaticResource PageTitleStyle}"/>
+        <Label Text="SEARCH FLIGHTS" Style="{StaticResource PageTitleStyle}"/>
     </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid" Padding="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal" x:Name="OptionsLayout" Padding="50,15,50,15">
+                <Button Text="ROUND TRIP" Style="{StaticResource SelectdButtonStyle}" 
+                        HorizontalOptions="StartAndExpand"
+                        CornerRadius="50" WidthRequest="150"
+                        Command="{Binding ToggleRoundTrip}"
+                        >
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding IsRoundTrip}" Value="False">
+                            <Setter Property="TextColor" Value="White"/>
+                            <Setter Property="BackgroundColor" Value="#5FFFFFFF"/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Text="ONE WAY" Style="{StaticResource UnselectedButtonStyle}"
+                        CornerRadius="50" WidthRequest="150" 
+                        HorizontalOptions="EndAndExpand"
+                        Command="{Binding ToggleOneWay}"
+                        >
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding IsRoundTrip}" Value="False">
+                            <Setter Property="TextColor" Value="{StaticResource MainPurpleColor}"/>
+                            <Setter Property="BackgroundColor" Value="White"/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackLayout>
+            <controls:SlideEntryForm Grid.Row="1" ShouldSwitchView="{Binding IsRoundTrip, Mode=TwoWay}" EntryModel="{Binding EntryModel}"/>
+        </Grid>
+    </ContentPage.Content>
 </base:BaseContentPage>
