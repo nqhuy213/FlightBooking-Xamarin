@@ -28,6 +28,10 @@ namespace FlightBooking.ViewModels
                 OnPropertyChanged();
             }
         }
+        public bool IsOneWay
+        {
+            get { return !isRoundTrip; }
+        }
         public SlideEntryModel EntryModel { get; set; } = Resolver.Resolve<SlideEntryModel>();
         public ICommand ToggleRoundTrip => new Command(() =>
         {

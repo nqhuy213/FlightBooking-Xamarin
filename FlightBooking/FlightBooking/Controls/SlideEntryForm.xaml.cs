@@ -35,23 +35,31 @@ namespace FlightBooking.Controls
             {
                 if (ShouldSwitchView)
                 {
-                    Device.BeginInvokeOnMainThread(async () => await TranslateLeftAsync());
+                    Device.BeginInvokeOnMainThread( () => TranslateLeftAsync());
                 }
                 else
                 {
-                    Device.BeginInvokeOnMainThread(async () => await TranslateRightAsync());
+                    Device.BeginInvokeOnMainThread( () => TranslateRightAsync());
                 }
             }
         }
-
-        private async Task TranslateRightAsync()
+        public SlideEntryForm()
         {
-            await Container.TranslateTo(0, 0, 250, Easing.SinIn);
+            InitializeComponent();
+
         }
 
-        private async Task TranslateLeftAsync()
+        private void TranslateRightAsync()
         {
-            await Container.TranslateTo(-600, 0, 250, Easing.SinIn);
+            RoundTripEntriesLayout.TranslateTo(0, 0, 250, Easing.SinIn);
+            OneWayEntriesLayout.TranslateTo(0, 0, 250, Easing.SinIn);
+        }
+
+        private void TranslateLeftAsync()
+        {
+            RoundTripEntriesLayout.TranslateTo(-600, 0, 250, Easing.SinIn);
+            OneWayEntriesLayout.TranslateTo(-600, 0, 250, Easing.SinIn);
+
         }
 
         public SlideEntryModel EntryModel 
@@ -59,10 +67,6 @@ namespace FlightBooking.Controls
             get { return (SlideEntryModel)GetValue(EntryModelProperty); }
             set { SetValue(EntryModelProperty, value); OnPropertyChanged(); } 
         }
-        public SlideEntryForm()
-        {
-            InitializeComponent();
-            BindingContext = this;
-        }
+        
     }
 }

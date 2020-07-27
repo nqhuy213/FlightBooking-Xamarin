@@ -17,6 +17,7 @@ namespace FlightBooking.Views
         public MainView()
         {
             InitializeComponent();
+            FlightForm.EntryModel = ViewModel.EntryModel;
         }
     }
 }

@@ -47,7 +47,8 @@
                     </Button.Triggers>
                 </Button>
             </StackLayout>
-            <controls:SlideEntryForm Grid.Row="1" ShouldSwitchView="{Binding IsRoundTrip, Mode=TwoWay}" EntryModel="{Binding EntryModel}"/>
+            <controls:SlideEntryForm x:Name="FlightForm" Grid.Row="1" ShouldSwitchView="{Binding IsOneWay}"/>
+
         </Grid>
     </ContentPage.Content>
 </base:BaseContentPage>
