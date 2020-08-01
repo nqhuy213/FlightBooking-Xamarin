@@ -2,6 +2,7 @@
 using FlightBooking.ViewModels;
 using FlightBooking.ViewModels.Base;
 using FlightBooking.Views;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -38,7 +39,10 @@ namespace FlightBooking.Services.Navigation
         {
             return InternalNavigateToAsync(typeof(TViewModel), parameter);
         }
-
+        public async Task ClosePopupAsync()
+        {
+            await PopupNavigation.Instance.PopAsync();
+        }
         public Task RemoveBackStackAsync()
         {
             var mainPage = Application.Current.MainPage as BaseNavigationPage;
@@ -74,6 +78,10 @@ namespace FlightBooking.Services.Navigation
             if (page is MainView)
             {
                 Application.Current.MainPage = new BaseNavigationPage(page);
+            }
+            else if(page is PassengerPopupView)
+            {
+                await PopupNavigation.Instance.PushAsync((PassengerPopupView) page);
             }
             else
             {

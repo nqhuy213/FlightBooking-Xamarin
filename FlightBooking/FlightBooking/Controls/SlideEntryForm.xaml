@@ -9,25 +9,34 @@
     <AbsoluteLayout x:Name="Container">
         <StackLayout x:Name="RoundTripEntriesLayout" Padding="25,5,25,0" AbsoluteLayout.LayoutBounds="0,0,415,300">
             <Label Text="From" TextColor="White" FontSize="18"/>
-            <Picker FontSize="18" Title="Select a city" TextColor="White" TitleColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.FromCity}"/>
+            <Picker FontSize="18" Title="Select a city" TextColor="White" 
+                    TitleColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.FromCity}"
+                    SelectedItem="{Binding Source={x:Reference SlideEntryFormView},Path=SearchResultModel.FromCity}"/>
             <Label Text="To" TextColor="White" FontSize="18"/>
-            <Picker FontSize="18" Title="Select a city" TitleColor="White" TextColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.ToCity}"/>
+            <Picker FontSize="18" Title="Select a city" TitleColor="White" 
+                    TextColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.ToCity}"
+                    SelectedItem="{Binding Source={x:Reference SlideEntryFormView},Path=SearchResultModel.ToCity}"/>
             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                 <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="170">
                     <Label Text="Departure" TextColor="White" FontSize="18"/>
-                    <DatePicker TextColor="White" FontSize="18" Date="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.Departure}"/>
+                    <DatePicker TextColor="White" FontSize="18" Date="{Binding Source={x:Reference SlideEntryFormView},Path=SearchResultModel.Departure}"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="170">
                     <Label Text="Return" TextColor="White" FontSize="18"/>
-                    <DatePicker TextColor="White" FontSize="18" Date="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.Return}"/>
+                    <DatePicker TextColor="White" FontSize="18" Date="{Binding Source={x:Reference SlideEntryFormView},Path=SearchResultModel.Return}"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
         <StackLayout x:Name="OneWayEntriesLayout" Padding="25,5,25,0" AbsoluteLayout.LayoutBounds="600,0,415,300">
             <Label Text="From" TextColor="White" FontSize="18"/>
-            <Picker FontSize="18" Title="Select a city" TextColor="White" TitleColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.FromCity}"/>
+            <Picker FontSize="18" Title="Select a city" TextColor="White" 
+                    TitleColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.FromCity}"
+                    SelectedItem="{Binding Source={x:Reference SlideEntryFormView},Path=SearchResultModel.FromCity}"
+                    />
             <Label Text="To" TextColor="White" FontSize="18"/>
-            <Picker FontSize="18" Title="Select a city" TitleColor="White" TextColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.ToCity}"/>
+            <Picker FontSize="18" Title="Select a city" TitleColor="White" 
+                    TextColor="White" ItemsSource="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.ToCity}"
+                    SelectedItem="{Binding Source={x:Reference SlideEntryFormView},Path=SearchResultModel.ToCity}"/>
             <StackLayout HorizontalOptions="FillAndExpand" >
                 <Label Text="Departure" TextColor="White" FontSize="18"/>
                 <DatePicker TextColor="White" FontSize="18" Date="{Binding Source={x:Reference SlideEntryFormView},Path=EntryModel.Departure}"/>

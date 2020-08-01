@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using FlightBooking.Services.Navigation;
+using FlightBooking.ViewModels;
 using FlightBooking.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,11 @@ namespace FlightBooking
             ContainerBuilder = new ContainerBuilder();
             foreach (var type in currentAssembly.DefinedTypes.Where(e => e.IsSubclassOf(typeof(Page)) || e.IsSubclassOf(typeof(BaseViewModel)) || e.IsSubclassOf(typeof(ContentView))))
             {
-                ContainerBuilder.RegisterType(type.AsType());
+                
+                    ContainerBuilder.RegisterType(type.AsType());
+                
             }
+            
             ContainerBuilder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
         }
 

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d"
+                    xmlns:vm="clr-namespace:FlightBooking.ViewModels"
+                    x:TypeArguments="vm:PassengerPopupViewModel"
+                    xmlns:base="clr-namespace:FlightBooking.Base"
+                    xmlns:triggers="clr-namespace:FlightBooking.Triggers"
+                    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                    Padding="20,100,20,100"
+                    CloseWhenBackgroundIsClicked="False"
+                    x:Class="FlightBooking.Views.PassengerPopupView">
+    <base:BasePopupPage.Animation>
+        <animations:FadeAnimation 
+            DurationIn="200"
+            DurationOut="200"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </base:BasePopupPage.Animation>
+    <Frame Padding="0" Margin="0">
+
+        <Grid Padding="30,0,30,0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Padding="0,20,0,0">
+                <Label Text="Passengers" TextColor="{StaticResource MainPurpleColor}" FontSize="17"/>
+            </StackLayout>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <BoxView Color="{StaticResource LightGrayColor}" HeightRequest="1"  Grid.ColumnSpan="2" VerticalOptions="Start"/>
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="Adults" FontSize="19"/>
+                    <Label Text="16 years and over" FontSize="14"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1">
+                    <ImageButton Source="{StaticResource MinusIcon}" 
+                                 BackgroundColor="{StaticResource MainPurpleColor}"
+                                 WidthRequest="25" HeightRequest="25" Padding="5"
+                                 CornerRadius="50" Command="{Binding DecreaseAdultsCommand}"
+                                 VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding Passengers.Adults, Mode=TwoWay}" FontSize="19" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <ImageButton Source="{StaticResource PlusIcon}"
+                                 BackgroundColor="{StaticResource MainPurpleColor}"
+                                 WidthRequest="25" HeightRequest="25" Padding="5"
+                                 CornerRadius="50" HorizontalOptions="EndAndExpand"
+                                 VerticalOptions="Center"
+                                 Command="{Binding IncreaseAdultsCommand}"/>
+                </StackLayout>
+                <BoxView Color="{StaticResource LightGrayColor}" HeightRequest="1"  Grid.ColumnSpan="2" VerticalOptions="End"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="Childs" FontSize="19"/>
+                    <Label Text="2-15 years" FontSize="14"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1">
+                    <ImageButton Source="{StaticResource MinusIcon}" 
+                                 BackgroundColor="{StaticResource MainPurpleColor}"
+                                 WidthRequest="25" HeightRequest="25" Padding="5"
+                                 CornerRadius="50" Command="{Binding DecreaseChildsCommand}"
+                                 VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding Passengers.Childs, Mode=TwoWay}" FontSize="19" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <ImageButton Source="{StaticResource PlusIcon}"
+                                 BackgroundColor="{StaticResource MainPurpleColor}"
+                                 WidthRequest="25" HeightRequest="25" Padding="5"
+                                 CornerRadius="50" HorizontalOptions="EndAndExpand"
+                                 VerticalOptions="Center" Command="{Binding IncreaseChildsCommand}"/>
+                </StackLayout>
+                <BoxView Color="{StaticResource LightGrayColor}" HeightRequest="1"  Grid.ColumnSpan="2" VerticalOptions="End"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="Babies" FontSize="19"/>
+                    <Label Text="Less than 2 years" FontSize="14"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1">
+                    <ImageButton Source="{StaticResource MinusIcon}" 
+                                 BackgroundColor="{StaticResource MainPurpleColor}"
+                                 WidthRequest="25" HeightRequest="25" Padding="5"
+                                 CornerRadius="50" Command="{Binding DecreaseBabiesCommand}"
+                                 VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding Passengers.Babies, Mode=TwoWay}" FontSize="19" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <ImageButton Source="{StaticResource PlusIcon}"
+                                 BackgroundColor="{StaticResource MainPurpleColor}"
+                                 WidthRequest="25" HeightRequest="25" Padding="5"
+                                 CornerRadius="50" HorizontalOptions="EndAndExpand"
+                                 VerticalOptions="Center" Command="{Binding IncreaseBabiesCommand}"/>
+                </StackLayout>
+                <BoxView Color="{StaticResource LightGrayColor}" HeightRequest="1"  Grid.ColumnSpan="2" VerticalOptions="End"/>
+            </Grid>
+            <StackLayout Orientation="Horizontal" Grid.Row="4">
+                <Button x:Name="CancelButton" Text="CANCEL" TextColor="Gray" BorderColor="LightGray" CornerRadius="15" 
+                        WidthRequest="140" HeightRequest="40" BackgroundColor="Transparent" 
+                        BorderWidth="1" VerticalOptions="Center" HorizontalOptions="StartAndExpand"
+                        Command="{Binding CancelCommand}"
+                        >
+                    <Button.Triggers>
+                        <EventTrigger Event="Pressed">
+                            <triggers:BackgroundButtonTriggerActions BackgroundColor="#8081529d"/>
+                        </EventTrigger>
+                        <EventTrigger Event="Released">
+                            <triggers:BackgroundButtonTriggerActions BackgroundColor="Transparent"/>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button x:Name="DoneButton" Text="DONE" TextColor="Gray" BorderColor="LightGray" CornerRadius="15" 
+                        WidthRequest="140" HeightRequest="40" BackgroundColor="Transparent" 
+                        BorderWidth="1" VerticalOptions="Center" HorizontalOptions="EndAndExpand"
+                        Command="{Binding DoneCommand}"
+                        >
+                    <Button.Triggers>
+                        <EventTrigger Event="Pressed">
+                            <triggers:BackgroundButtonTriggerActions BackgroundColor="#8081529d"/>
+                        </EventTrigger>
+                        <EventTrigger Event="Released">
+                            <triggers:BackgroundButtonTriggerActions BackgroundColor="Transparent"/>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackLayout>
+        </Grid>
+    </Frame>
+</base:BasePopupPage>

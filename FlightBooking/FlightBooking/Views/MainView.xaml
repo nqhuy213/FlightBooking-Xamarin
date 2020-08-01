@@ -8,8 +8,14 @@
                       xmlns:base="clr-namespace:FlightBooking.Base"
                       xmlns:vm="clr-namespace:FlightBooking.ViewModels"
                       x:TypeArguments="vm:MainViewModel"
+                      xmlns:converters="clr-namespace:FlightBooking.Converters"
                       xmlns:controls="clr-namespace:FlightBooking.Controls"
                       x:Class="FlightBooking.Views.MainView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:PassengerTextConverter x:Key="PassengersToText"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <NavigationPage.TitleView>
         <Label Text="SEARCH FLIGHTS" Style="{StaticResource PageTitleStyle}"/>
     </NavigationPage.TitleView>
@@ -47,8 +53,24 @@
                     </Button.Triggers>
                 </Button>
             </StackLayout>
-            <controls:SlideEntryForm x:Name="FlightForm" Grid.Row="1" ShouldSwitchView="{Binding IsOneWay}"/>
-
+            <controls:SlideEntryForm x:Name="FlightForm" Grid.Row="1" ShouldSwitchView="{Binding IsOneWay}" SearchResultModel="{Binding SearchResult}"/>
+            <StackLayout x:Name="PassengersLayout" Grid.Row="2" Margin="0,25,0,0" Padding="20,10,20,0">
+                <Frame BackgroundColor="{StaticResource LightGrayColor}" HeightRequest="60" Padding="20,15,20,15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout>
+                            <Label Text="Passengers" TextColor="{StaticResource DarkGrayColor}" FontSize="16"/>
+                            <Label Text="{Binding SearchResult.Passengers.PassengerText}" FontSize="19"/>
+                        </StackLayout>
+                        <ImageButton Grid.Column="1" Source="{StaticResource OpenPopupIcon}" BackgroundColor="Transparent"  
+                                     WidthRequest="20" HeightRequest="20" Aspect="AspectFit" Margin="0,0,0,10"
+                                     VerticalOptions="End" HorizontalOptions="End" Command="{Binding OpenPassengerEntryCommand}"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </base:BaseContentPage>

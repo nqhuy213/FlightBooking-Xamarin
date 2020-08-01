@@ -12,9 +12,10 @@
                 <On Platform="Android" Value="FontAwesome.otf#" />
             </OnPlatform>
             <Color x:Key="MainPurpleColor">#81529d</Color>
-            <Color x:Key="LightGrayColor">#f3f3f3</Color>
             <Color x:Key="UnselectedIconColor">#b2b2b2</Color>
             <Color x:Key="SelectedIconColor">#81529d</Color>
+            <Color x:Key="LightGrayColor">#f3f3f3</Color>
+            <Color x:Key="DarkGrayColor">#9b9b9e</Color>
             <Style x:Key="PageTitleStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="TextColor" Value="White"/>
@@ -40,6 +41,12 @@
             
             <FontImage FontFamily="{StaticResource IconFont}" x:Key="MoreIcon" 
                        Glyph='&#xf141;' Size="22" Color="{StaticResource UnselectedIconColor}"/>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="OpenPopupIcon" 
+                       Glyph="&#xf067;" Color="Gray"/>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="PlusIcon" 
+                       Glyph="&#xf067;" Color="White"/>
+            <FontImage FontFamily="{StaticResource IconFont}" x:Key="MinusIcon" Size="20"
+                       Glyph="&#xf068;" Color="White"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

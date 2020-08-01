@@ -1,4 +1,5 @@
 ﻿using FlightBooking.Models;
+using FlightBooking.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,8 @@ namespace FlightBooking.Controls
             typeof(SlideEntryForm),null, BindingMode.TwoWay);
         public static readonly BindableProperty ShouldSwitchViewProperty = BindableProperty.Create(nameof(ShouldSwitchView), typeof(bool), 
             typeof(SlideEntryForm), false, BindingMode.TwoWay);
-
+        public static readonly BindableProperty SearchResultModelProperty = BindableProperty.Create(nameof(SearchResultModel), typeof(SearchResultModel),
+            typeof(SlideEntryForm), null, BindingMode.TwoWay);
         public bool ShouldSwitchView
         {
             get { return (bool)GetValue(ShouldSwitchViewProperty); }
@@ -67,6 +69,10 @@ namespace FlightBooking.Controls
             get { return (SlideEntryModel)GetValue(EntryModelProperty); }
             set { SetValue(EntryModelProperty, value); OnPropertyChanged(); } 
         }
-        
+        public SearchResultModel SearchResultModel
+        {
+            get { return (SearchResultModel)GetValue(SearchResultModelProperty); }
+            set { SetValue(SearchResultModelProperty, value); OnPropertyChanged(); }
+        }
     }
 }

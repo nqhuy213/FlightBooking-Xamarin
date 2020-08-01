@@ -13,7 +13,6 @@ namespace FlightBooking.Models
             "Tokyo"
         };
         public List<string> ToCity { get; set; }
-        public DateTime Departure { get; set; } = DateTime.Now;
-        public DateTime Return { get; set; } = DateTime.Now;
+
     }
 }
