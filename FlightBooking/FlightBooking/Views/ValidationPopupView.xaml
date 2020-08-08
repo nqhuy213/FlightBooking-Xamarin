@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d"
+                    xmlns:base="clr-namespace:FlightBooking.Base"
+                    xmlns:vm="clr-namespace:FlightBooking.ViewModels"
+                    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                    x:TypeArguments="vm:ValidationPopupViewModel"
+                    Padding="20,200,20,250"
+                    xmlns:triggers="clr-namespace:FlightBooking.Triggers"
+                    CloseWhenBackgroundIsClicked="False"
+                    x:Class="FlightBooking.Views.ValidationPopupView">
+    <base:BasePopupPage.Animation>
+        <animations:FadeAnimation 
+            DurationIn="200"
+            DurationOut="200"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </base:BasePopupPage.Animation>
+    <Frame Padding="0" Margin="0">
+        <Grid Padding="30,0,30,0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Padding="0,20,0,0">
+                <Label Text="Please fill in" TextColor="{StaticResource MainPurpleColor}" FontSize="17" HorizontalOptions="Center"/>
+                <BoxView Color="{StaticResource LightGrayColor}" HeightRequest="1"  Grid.ColumnSpan="2" VerticalOptions="Start"/>
+            </StackLayout>
+            <StackLayout Padding="0,20,0,0" Grid.Row="1">
+                <Label Margin="90,0,0,0" Text="Departure City" TextColor="{StaticResource DarkGrayColor}" FontSize="19" HorizontalOptions="StartAndExpand" IsVisible="{Binding MissingDeparture}"/>
+                <Label Margin="90,10,0,0" Text="Destination City" TextColor="{StaticResource DarkGrayColor}" FontSize="19" HorizontalOptions="StartAndExpand" IsVisible="{Binding MissingDestination}"/>
+                <BoxView Color="{StaticResource LightGrayColor}" HeightRequest="1"  Grid.ColumnSpan="2" VerticalOptions="Start"/>
+            </StackLayout>
+            <Button Grid.Row="2" CornerRadius="50" WidthRequest="140" HeightRequest="40" Text="Okay" BorderColor="{StaticResource MainPurpleColor}" BorderWidth="1"
+                    HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="Transparent" Margin="0,30,0,0" TextColor="{StaticResource DarkGrayColor}"
+                    Command="{Binding ClosePopupCommand}">
+                <Button.Triggers>
+                    <EventTrigger Event="Pressed">
+                        <triggers:BackgroundButtonTriggerActions BackgroundColor="#8081529d"/>
+                    </EventTrigger>
+                    <EventTrigger Event="Released">
+                        <triggers:BackgroundButtonTriggerActions BackgroundColor="Transparent"/>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+        </Grid>
+    </Frame>
+</base:BasePopupPage>

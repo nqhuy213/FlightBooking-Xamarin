@@ -7,7 +7,9 @@
                       BackgroundImageSource="background.png"
                       xmlns:base="clr-namespace:FlightBooking.Base"
                       xmlns:vm="clr-namespace:FlightBooking.ViewModels"
+                      xmlns:triggers="clr-namespace:FlightBooking.Triggers"
                       x:TypeArguments="vm:MainViewModel"
+                      xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
                       xmlns:converters="clr-namespace:FlightBooking.Converters"
                       xmlns:controls="clr-namespace:FlightBooking.Controls"
                       x:Class="FlightBooking.Views.MainView">
@@ -20,7 +22,7 @@
         <Label Text="SEARCH FLIGHTS" Style="{StaticResource PageTitleStyle}"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <Grid x:Name="MainGrid" Padding="0,50,0,0">
+        <Grid x:Name="MainGrid" Padding="0,50,0,0" RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="3*"/>
@@ -54,7 +56,7 @@
                 </Button>
             </StackLayout>
             <controls:SlideEntryForm x:Name="FlightForm" Grid.Row="1" ShouldSwitchView="{Binding IsOneWay}" SearchResultModel="{Binding SearchResult}"/>
-            <StackLayout x:Name="PassengersLayout" Grid.Row="2" Margin="0,25,0,0" Padding="20,10,20,0">
+            <StackLayout x:Name="PassengersLayout" Grid.Row="2" Margin="0,25,0,0" Padding="20,10,20,0" >
                 <Frame BackgroundColor="{StaticResource LightGrayColor}" HeightRequest="60" Padding="20,15,20,15">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -70,6 +72,34 @@
                                      VerticalOptions="End" HorizontalOptions="End" Command="{Binding OpenPassengerEntryCommand}"/>
                     </Grid>
                 </Frame>
+                
+            </StackLayout>
+            <StackLayout Grid.Row="3" HorizontalOptions="FillAndExpand" >
+                <StackLayout x:Name="Class_Layout" Orientation="Horizontal" VerticalOptions="Start" Padding="35,0,40,0" HorizontalOptions="FillAndExpand">
+                    <syncfusion:SfRadioGroup x:Name="Class_RadioGroup" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <syncfusion:SfRadioButton Text="Tourist Class" TextColor="{StaticResource DarkGrayColor}" 
+                                              FontSize="19" 
+                                              CheckedColor="{StaticResource MainPurpleColor}"
+                                              IsChecked="{Binding SearchResult.IsTouristClass}" 
+                                              HorizontalOptions="StartAndExpand"/>
+                        <syncfusion:SfRadioButton Text="Business Class" TextColor="{StaticResource DarkGrayColor}" 
+                                              FontSize="19" CheckedColor="{StaticResource MainPurpleColor}"
+                                              IsChecked="{Binding SearchResult.IsBusinessClass}" 
+                                              HorizontalOptions="End"/>
+                    </syncfusion:SfRadioGroup>
+                </StackLayout>
+                <Button x:Name="SearchButton" Text="Search Flights" Command="{Binding SearchFlightCommand}" TextColor="{StaticResource MainPurpleColor}"
+                        CornerRadius="50" BorderColor="{StaticResource MainPurpleColor}" WidthRequest="300"
+                        BorderWidth="1" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Button.Triggers>
+                        <EventTrigger Event="Pressed">
+                            <triggers:BackgroundButtonTriggerActions BackgroundColor="#8081529d"/>
+                        </EventTrigger>
+                        <EventTrigger Event="Released">
+                            <triggers:BackgroundButtonTriggerActions BackgroundColor="Transparent"/>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

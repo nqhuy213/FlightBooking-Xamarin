@@ -83,6 +83,10 @@ namespace FlightBooking.Services.Navigation
             {
                 await PopupNavigation.Instance.PushAsync((PassengerPopupView) page);
             }
+            else if (page is ValidationPopupView)
+            {
+                await PopupNavigation.Instance.PushAsync((ValidationPopupView)page);
+            }
             else
             {
                 var navigationPage = Application.Current.MainPage as BaseNavigationPage;

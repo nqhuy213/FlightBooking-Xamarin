@@ -20,7 +20,7 @@ namespace FlightBooking.ViewModels
         }
         public SlideEntryModel EntryModel { get; set; }
         public SearchResultModel SearchResult { get; set; }
-
+        public ValidationPopupViewModel validation { get; set; } 
         public ICommand ToggleRoundTrip => new Command(() =>
         {
             IsRoundTrip = true;
@@ -34,6 +34,33 @@ namespace FlightBooking.ViewModels
             await _navigationService.NavigateToAsync<PassengerPopupViewModel>(SearchResult.Passengers);
             
         });
+        public ICommand SearchFlightCommand => new Command(async () =>
+        {
+            if (IsValidated())
+            {
+
+            }
+            else
+            {
+                await _navigationService.NavigateToAsync<ValidationPopupViewModel>(validation);
+            }
+        });
+        private bool IsValidated()
+        {
+            validation = new ValidationPopupViewModel();
+            bool result = true;
+            if (SearchResult.FromCity == null)
+            {
+                validation.MissingDeparture = true;
+                result = false;
+            }
+            if (SearchResult.ToCity == null)
+            {
+                validation.MissingDestination = true;
+                result = false;
+            }
+            return result;
+        }
         #endregion
         #region Constructor
         public MainViewModel()

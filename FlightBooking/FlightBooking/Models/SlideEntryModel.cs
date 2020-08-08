@@ -12,7 +12,10 @@ namespace FlightBooking.Models
         {
             "Tokyo"
         };
-        public List<string> ToCity { get; set; }
+        public List<string> ToCity { get; set; } = new List<string>()
+        {
+            "Tokyo"
+        };
 
     }
 }
